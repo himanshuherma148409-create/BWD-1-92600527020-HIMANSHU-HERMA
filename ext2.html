@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Streams and Subjects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        ol {
+            padding-left: 20px;
+        }
+
+        .stream {
+            cursor: pointer;
+            color: blue;
+            font-weight: bold;
+        }
+
+        .subjects {
+            display: none;
+            margin-top: 5px;
+        }
+
+        .subject {
+            cursor: pointer;
+            color: green;
+        }
+
+        #details {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #333;
+            width: 400px;
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Streams and Subjects</h2>
+
+<ol>
+    <li>
+        <span class="stream" onclick="toggleSubjects('science')">Science</span>
+        <ol id="science" class="subjects">
+            <li><span class="subject" onclick="showDetails('Physics')">Physics</span></li>
+            <li><span class="subject" onclick="showDetails('Chemistry')">Chemistry</span></li>
+            <li><span class="subject" onclick="showDetails('Biology')">Biology</span></li>
+        </ol>
+    </li>
+
+    <li>
+        <span class="stream" onclick="toggleSubjects('commerce')">Commerce</span>
+        <ol id="commerce" class="subjects">
+            <li><span class="subject" onclick="showDetails('Accountancy')">Accountancy</span></li>
+            <li><span class="subject" onclick="showDetails('Economics')">Economics</span></li>
+            <li><span class="subject" onclick="showDetails('Business Studies')">Business Studies</span></li>
+        </ol>
+    </li>
+
+    <li>
+        <span class="stream" onclick="toggleSubjects('arts')">Arts</span>
+        <ol id="arts" class="subjects">
+            <li><span class="subject" onclick="showDetails('History')">History</span></li>
+            <li><span class="subject" onclick="showDetails('Geography')">Geography</span></li>
+            <li><span class="subject" onclick="showDetails('Political Science')">Political Science</span></li>
+        </ol>
+    </li>
+</ol>
+
+<div id="details">
+    <h3>Subject Details</h3>
+    <p>Click a subject to view its details.</p>
+</div>
+
+<script>
+function toggleSubjects(id) {
+    const list = document.getElementById(id);
+    list.style.display = (list.style.display === "block") ? "none" : "block";
+}
+
+function showDetails(subject) {
+    const details = {
+        "Physics": "Physics deals with matter, energy, force, and motion.",
+        "Chemistry": "Chemistry is the study of substances and chemical reactions.",
+        "Biology": "Biology is the study of living organisms.",
+        "Accountancy": "Accountancy involves recording and managing financial transactions.",
+        "Economics": "Economics studies production, distribution, and consumption of goods.",
+        "Business Studies": "Business Studies covers management and business operations.",
+        "History": "History is the study of past events.",
+        "Geography": "Geography studies the Earth, its features, and people.",
+        "Political Science": "Political Science studies governments, politics, and public policies."
+    };
+
+    document.getElementById("details").innerHTML =
+        "<h3>" + subject + "</h3><p>" + details[subject] + "</p>";
+}
+</script>
+
+</body>
+</html>
